@@ -45,6 +45,7 @@ class Post(db.Model):
     slug = db.Column(db.String(100), nullable = False)
     subtitle = db.Column(db.Text, nullable = False)
     content = db.Column(db.Text, nullable=False)
+    keywords  = db.Column(db.Text, nullable = True)
     img = db.Column(db.Text, nullable=True)
     date_posted = db.Column(db.DateTime, nullable=False, default=datetime.now(timezone.utc))
     to_redirect = db.Column(db.String(20),nullable = True)

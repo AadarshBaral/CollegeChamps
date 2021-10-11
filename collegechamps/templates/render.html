@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+  
   <head>
     <meta charset="UTF-8" />
-    <title>Pracite IOE and IOM Entrance | Class 11, 12 Notes| CollegeChamps 
-    </title>
+    {% if title %}
+    <title>{{title}} | CollegeChamps</title>
+    {% else %}
+    <title>Pracite IOE and IOM Entrance | Class 11, 12 Notes| CollegeChamps </title>
+    {% endif %}
+    <!-- <title>
+    </title> -->
     <!-- Boxicons CDN Link -->
     <link
       href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
@@ -24,6 +30,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
       rel="stylesheet"
     />
+    
   </head>
   <style>
     * {
@@ -367,6 +374,7 @@
     }
 
   </style>
+
   <body>
     <nav>
       <div class="navbar">

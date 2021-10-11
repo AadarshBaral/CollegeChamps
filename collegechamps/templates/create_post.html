@@ -73,8 +73,9 @@ background: rgb(183, 239, 255);
       <li>Set the <strong>Subject Title</strong> to <strong>none</strong></li>
       <li>You must attach a photo</li>
       <li>A clear subtitle is recommended(must). make sure it clarifies the title within 75 chacters</li>
+      
       <li>Write a proper blog and use predefined classes to style the blog content</li>
-
+      <li>Keywords is a must</li>
     </ul>
    {% endif %}
     {% if parameter=='note'%}
@@ -86,6 +87,8 @@ background: rgb(183, 239, 255);
       <li>Write a proper blog and use predefined classes to style the blog content</li>
       <li>Fill up the custom made pdf link in the content section</li>
       <p><strong>Use this format for the pdf</strong></p>
+      <li>Keywords is a must</li>
+
       <div style="max-width: 400px;background: rgb(209, 209, 209);border-radius :10px ;padding : 10px; overflow: hyphens">
 
         <code >
@@ -119,6 +122,9 @@ background: rgb(183, 239, 255);
     <br />
     {{form.subject_title.label()}} {{form.subject_title}}
     <br />
+    {{form.keywords.label()}}
+    {{form.keywords}}
+    <br>
     {{form.content.label()}} {{form.content()}}
     <br />
     {{form.note_grade.label()}}

@@ -45,7 +45,7 @@ def search():
     if q and len(q)>=2:
         flash('Found Something','info')
         posts = Post.query.filter(Post.title.contains(q) | 
-        Post.content.contains(q))
+        Post.keywords.contains(q))
     else:
         flash('Found Nothing...','info')
         return redirect(url_for('blogs.blog_page'))
@@ -169,6 +169,7 @@ def postNew(parameter):
             slug = form.slug.data
             content = form.content.data
             subtitle = form.subtitle.data
+            keywords = form.keywords.data
             price = form.price.data
             subject_title = form.subject_title.data
             pic = request.files['pic']
@@ -182,7 +183,7 @@ def postNew(parameter):
                 pic = 'hello.png'
             to_redirect = form.to_redirect.data
             post = Post(title=title, slug=slug, subtitle=subtitle, img=pic,
-                        to_redirect=to_redirect, content=content, price=price, subject_title=subject_title, others1 = others1, others2 = others2, grade = note_grade, topic = topic)
+                        to_redirect=to_redirect, content=content, price=price, subject_title=subject_title, others1 = others1, others2 = others2, grade = note_grade, topic = topic,keywords=keywords)
             db.session.add(post)
             db.session.commit()
             # {flash_kw}
@@ -209,6 +210,7 @@ def post_new_no_param():
             content = form.content.data
             subtitle = form.subtitle.data
             price = form.price.data
+            keywords = form.keywords.data
             subject_title = form.subject_title.data
             pic = request.files['pic']
             others1 = form.others1.data
@@ -221,7 +223,7 @@ def post_new_no_param():
                 pic = 'hello.png'
             to_redirect = form.to_redirect.data
             post = Post(title=title, slug=slug, subtitle=subtitle, img=pic,
-                        to_redirect=to_redirect, content=content, price=price, subject_title=subject_title, others1 = others1, others2 = others2,grade = note_grade,topic=topic)
+                        to_redirect=to_redirect, content=content, price=price, subject_title=subject_title, others1 = others1, others2 = others2,grade = note_grade,topic=topic,keywords=keywords)
             db.session.add(post)
             db.session.commit()
             # {flash_kw}
@@ -247,6 +249,7 @@ def update_post(post_id):
             post.subtitle = form.subtitle.data
             post.to_redirect = form.to_redirect.data
             post.price = form.price.data
+            post.keywords= form.keywords.data
             post.others1 = form.others1.data
             post.others2 = form.others2.data
             post.grade = form.note_grade.data
@@ -268,6 +271,7 @@ def update_post(post_id):
             form.slug.data = post.slug
             form.subject_title.data = post.subject_title
             form.subtitle.data = post.subtitle
+            form.keywords.data = post.keywords
             form.to_redirect.data = post.to_redirect
             form.price.data = post.price
             form.others1.data = post.others1
@@ -294,6 +298,7 @@ def delete_post(post_id):
 
 
 @blogs.route('/set_page')
+@login_required
 def set_page():
     side_posts = Post.query.filter_by(others2 = 'sidebar')
     sets = Post.query.filter_by(slug='set_page',subject_title = 'see')
