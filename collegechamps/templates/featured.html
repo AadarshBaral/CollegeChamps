@@ -1,0 +1,104 @@
+{% extends 'render.html' %}
+
+{% block showcase_nav_foot %}
+
+<link rel="stylesheet" href="{{url_for('static',filename='css/blog_content.css')}}">
+
+<div class="showcase">
+  <div class="main-container">
+    <h1 class="showcase-maintext">{{feat.title}}</h1>
+    <p class="showcase-subtext">The page where nothing happens..</p>
+    <a href="#" class="btn-secondary"
+      >Practice Now <i class="fas fa-chevron-down"></i
+    ></a>
+  </div>
+</div>
+{% endblock showcase_nav_foot %}
+{% block sectionA %}
+<div>
+
+  <div class="container">
+    <div class="blog-grid-container">
+      <div class="blog-2-1">
+        <div>
+          <div class="written-blog-container">
+        
+         <p class="blog-title">{{feat.title}}</p>
+ 
+            
+            <div class="line col-1"></div>
+            <div class="social-grid-container">
+              <div class="author-date">
+                <p class="author">Posted By Administrator</p>
+                <p class="date-posted">6th July</p>
+              </div>
+              <div class="social-icons">
+                <p class="share">Share &#8618;</p>
+                <img
+                  class="social-icon"
+                  src="{{ url_for('static', filename='/img/facebook.png') }}"
+                  alt=""
+                />
+                <img
+                  class="social-icon"
+                  src="{{ url_for('static', filename='/img/twitter.png') }}"
+                  alt=""
+                />
+                <img
+                  class="social-icon"
+                  src="{{ url_for('static', filename='/img/instagram.png') }}"
+                  alt=""
+                />
+              </div>
+            </div>
+            <!-- <p class="blog-content">
+              {% if feat %}
+              {{feat.content | safe}}
+              {% else %}
+              {{post.content | safe}}
+              {% endif %}
+              
+            </p> -->
+                        <div class="main_blog_content">
+          <div class="blog-content">
+
+                {% if note_contents %}
+              <div class="topic_list_container">
+                {% for note_title in note_contents %}
+
+                <li style="list-style: disc;"><a href="{{ url_for('blogs.post',post_id = note_title.id) }}">
+                    {{note_title.title}}</a></li>
+                {% endfor %}
+              </div>
+              {% endif %}
+
+              <br>
+              {% if identifier =='subject_notes' %}
+              {% for note_post in posts_notes %}
+              {{ note_post.content }}
+              {% endfor %}
+              {% else %}
+              {{feat.content | safe}}
+              {% endif %}
+            </div>
+            </div>
+          </div>
+          <div>
+            <!-- <aside class="sidebar">
+            <p class="side-bar-content">&#x21ac; Maths Notes</p>
+            <p class="side-bar-content">&#x21ac; Physics Notes</p>
+            <p class="side-bar-content">&#x21ac; Biology Notes</p>
+            <p class="side-bar-content">&#x21ac; English Notes</p>
+            <p class="side-bar-content">&#x21ac;Chemistry Notes</p>
+          </aside> -->
+          </div>
+        </div>
+        {% include 'quick_buttons.html' %}
+        <!-- <div class="blog-featured-marin"> -->
+          {% include 'feat-component.html' %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock  %}

@@ -1,0 +1,54 @@
+{% include 'navbar.html' %}
+<style>
+.check{
+  width : 20px;
+  height : 20px;
+  margin-right: 10px;
+}
+#checkbox{
+  display: flex;
+  align-items: center;
+  padding: 5px 0px 5px 0px;
+
+}
+
+</style>
+<div class="login-container">
+  <div class="login-card">
+    {% if login_register %}
+    <p class="login_register">{{login_register}}</p>
+    {% else %}
+    <p class="login_register">Register</p>
+    {% endif %}
+    <div class="inside-container">
+
+      <!-- <div class="oauth all">
+        <a href="#"><i class="fab fa-google all"></i>Login With Google</a>
+      </div> -->
+      <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <br />
+        {{form.email()}}
+        <br />
+        {{form.password()}}
+        <br />
+<div id="checkbox">
+        {{form.remember(class = 'check')}} 
+        {{form.remember.label()}}
+      </div>
+        {{ form.submit(class='sc5-btn btn btn-secondary ') }}
+        <p class="already">
+          To create a new account,
+          <a class="linklog-in" href="{{url_for('users.register')}}">SignUp</a>
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="{{url_for('static',filename='sctipt/script.js')}}"></script>
+<br>
+<br>
+
+
+{% include 'footer.html' %}

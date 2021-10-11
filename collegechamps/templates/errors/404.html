@@ -1,0 +1,24 @@
+{% extends 'render.html' %}
+{% block showcase_nav_foot %}
+<!-- end of navbar -->
+<div class="showcase {{background}} ">
+  <div class="main-container">
+    <h1 class="showcase-maintext">{{heading}}</h1>
+    <p class="showcase-subtext">{{sub_header}}</p>
+    <a href="{{ url_for('main.home') }}"class="{{button}} btn-secondary">Back to home</a>
+  </div>
+</div>
+{% endblock showcase_nav_foot %}
+{% block sectionA %}
+<div style="display : flex; justify-content : center;">
+    <p>{{message}}</p>
+ 
+    <img src="{{ url_for('static',filename  = '/img/404.jpg' ) }}"  style="  display: block;
+    width: auto;
+    height: 400px;
+    "
+     alt="">
+   
+</div>
+   
+{% endblock sectionA %}

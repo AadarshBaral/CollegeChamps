@@ -1,0 +1,246 @@
+<style>
+  #container {
+  /* height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  background: teal;
+   background : rgb(255, 226, 216);
+  display: grid ; */
+ 
+ 
+  place-items: center
+}
+
+#slider-container {
+  height: 250px;
+  /* width: 90vw; */
+  max-width: 700px;
+  margin:auto;
+  /* background: #54d5e4;
+  box-shadow: 5px 5px 8px gray inset;
+    padding: 15px; */
+  position: relative;
+  overflow: hidden;
+
+}
+
+#slider-container .btn {
+  position: absolute;
+  top: calc(50% - 15px);
+  height: 30px;
+  width: 30px;
+  border-left: 6px solid #d4af37;
+  border-top: 6px solid #d4af37;
+
+  padding : 10px;
+}
+
+#slider-container .btn:hover {
+  transform: scale(1.2);
+}
+
+#slider-container .btn.inactive {
+  border-color: rgb(153, 121, 126)
+}
+
+#slider-container .btn:first-of-type {
+  transform: rotate(-45deg);
+  left: 16px
+}
+
+#slider-container .btn:last-of-type {
+  transform: rotate(135deg);
+  right: 6px;
+}
+
+#slider-container #slider {
+  display: flex;
+  width: 1000%;
+  height: 100%; 
+  transition: all .5s;
+}
+
+#slider-container #slider .slide {
+  height: 100%;
+  margin: auto 10px;
+  background : rgb(31, 105, 216);
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  cursor:pointer;
+}
+#slider-container #slider .slide a{
+  z-index : 5;
+  color : white;
+
+}
+#slider-container #slider .slide a:hover {
+  color : rgb(23, 216, 126);
+  transition: color .3s;
+}
+#slider-container #slider .slide span {
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  padding : 5px;
+}
+
+@media only screen and (min-width: 1100px) {
+
+  #slider-container #slider .slide {
+    width: calc(3.5%);
+  }
+
+}
+
+@media only screen and (max-width: 1100px) {
+
+  #slider-container #slider .slide {
+    width: calc(3.3333333% - 20px);
+  }
+
+}
+
+@media only screen and (max-width: 900px) {
+
+  #slider-container #slider .slide {
+    width: calc(5% - 15px);
+  }
+
+}
+
+@media only screen and (max-width: 550px) {
+
+  #slider-container #slider .slide {
+    width: calc(10% -10px);
+    height : 80%
+  }
+
+}
+
+
+.btn{
+  background-color: transparent ;
+
+}
+.btn:hover{
+  transform: scale(1.2);
+}
+.container{
+  max-width: 700px;
+  margin:auto;
+}
+</style>
+
+<script src=""></script>
+  
+<div id="container">
+  <div id="slider-container">
+    <span onclick="slideRight()" class="btn"></span>
+      <div id="slider">
+
+      <div class="slide"><span><a href="{{ url_for('subjects.notes_page_science_11') }}">Class 11 Science Notes</a></span></div>
+      <div class="slide"><span><a href="{{ url_for('subjects.notes_page_science_12') }}">Class 12 Science Notes</a></span></div>
+      <div class="slide"><span><a href="{{ url_for('subjects.notes_page_entrance') }}">IOE Entrance Notes</a></span></div>
+    
+        
+ 
+
+        <!-- <div class="slide"><span>1</span></div>
+        
+        <div class="slide"><span>3<span></div>
+        <div class="slide"><span>4</span></div>
+        <div class="slide"><span>5</span></div>
+        <div class="slide"><span>6</span></div>
+        <div class="slide"><span>7</span></div>
+        <div class="slide"><span>8</span></div>
+        <div class="slide"><span>9</span></div>
+        <div class="slide"><span>10</span></div> -->
+    </div>
+    <span onclick="slideLeft()" class="btn"></span>
+  </div>
+</div>
+<script>
+  var container = document.getElementById('container')
+var slider = document.getElementById('slider');
+var slides = document.getElementsByClassName('slide').length;
+var buttons = document.getElementsByClassName('btn');
+
+
+var currentPosition = 0;
+var currentMargin = 0;
+var slidesPerPage = 0;
+var slidesCount = slides - slidesPerPage;
+var containerWidth = container.offsetWidth;
+var prevKeyActive = false;
+var nextKeyActive = true;
+
+window.addEventListener("resize", checkWidth);
+
+function checkWidth() {
+    containerWidth = container.offsetWidth;
+    setParams(containerWidth);
+}
+  function setParams(w) {
+    if (w < 600) {
+        slidesPerPage = 2;
+    }else{
+        if (w < 901) {
+            slidesPerPage = 2;
+        } else {
+            if (w < 1101) {
+                slidesPerPage = 3;
+            } else {
+                slidesPerPage = 2;
+            }
+        }
+      }
+    slidesCount = slides - slidesPerPage;
+    if (currentPosition > slidesCount) {
+        currentPosition -= slidesPerPage;
+    };
+    currentMargin = - currentPosition * (100 / slidesPerPage);
+    slider.style.marginLeft = currentMargin + '%';
+    if (currentPosition > 0) {
+        buttons[0].classList.remove('inactive');
+    }
+    if (currentPosition < slidesCount) {
+        buttons[1].classList.remove('inactive');
+    }
+    if (currentPosition >= slidesCount) {
+        buttons[1].classList.add('inactive');
+    }
+}
+
+setParams();
+
+function slideRight() {
+    if (currentPosition != 0) {
+        slider.style.marginLeft = currentMargin + (100 / slidesPerPage) + '%';
+        currentMargin += (100 / slidesPerPage);
+        currentPosition--;
+    };
+    if (currentPosition === 0) {
+        buttons[0].classList.add('inactive');
+    }
+    if (currentPosition < slidesCount) {
+        buttons[1].classList.remove('inactive');
+    }
+};
+
+function slideLeft() {
+    if (currentPosition != slidesCount) {
+        slider.style.marginLeft = currentMargin - (100 / slidesPerPage) + '%';
+        currentMargin -= (100 / slidesPerPage);
+        currentPosition++;
+    };
+    if (currentPosition == slidesCount) {
+        buttons[1].classList.add('inactive');
+    }
+    if (currentPosition > 0) {
+        buttons[0].classList.remove('inactive');
+    }
+};
+</script>

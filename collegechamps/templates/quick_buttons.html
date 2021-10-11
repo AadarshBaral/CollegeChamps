@@ -1,0 +1,55 @@
+
+<style>
+.quick_buttons{
+    
+    display: flex;
+    position: fixed;
+	bottom:20px;
+    width: 160px;
+	height:50px;
+	left:20px;
+    justify-content: space-around;
+align-items: center;
+	border-radius:50px;
+	text-align:center;
+    z-index:100 ;
+    
+    align-items: center;
+    color : white;
+    background : rgb(17, 207, 255);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+
+}
+.quick_buttons img{
+    filter:  brightness(0) invert(1);
+
+}
+
+@media (min-width: 800px) {
+    .quick_buttons{
+        display:none;
+    }
+    .bx-menu{
+        display: none;
+    }
+}
+
+</style>        
+<div class="quick_buttons">
+    <a  style = 'font-size : 30px; color : white;' class = 'bx bx-menu'href="javascript:;"></a>
+
+    <a  style = 'font-size : 35px; color : white;' class = 'cross2 bx bx-x off'href="javascript:;"></a>
+
+
+
+  <a href="#" onclick="history.back()">  <img src="{{ url_for('static', filename ='img/back.png' ) }}"></a>
+
+
+<a style = "display:inline-block; overflow: hidden;"href="{{ url_for('blogs.blog_page') }}">  <img src="{{ url_for('static', filename ='img/home.png' ) }}"></a>
+
+  <a href = 'javascript:;'style = "display:inline-block; overflow: hidden;" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">  <img  style=" transform: scaleX(-1); transform : rotate(90deg)" src="{{ url_for('static', filename ='img/back.png' ) }}"></a>
+
+</div>
+<script>
+
+</script>

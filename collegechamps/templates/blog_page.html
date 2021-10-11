@@ -1,0 +1,141 @@
+
+
+{% extends 'render.html' %}
+
+{% block showcase_nav_foot %}
+<style>
+  .paginate_pages{
+    display : flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .paginate_pages a {
+    border : 2px solid grey;
+    border-radius: 10px;
+    padding : 10px 20px 10px 20px;
+    margin : 0px 4px 4px 4px;
+    color : grey;
+  }
+  .paginate_pages .current_page{
+    border : 2px solid rgb(31, 105, 216);
+    color : white;
+    background : rgb(31, 105, 216);
+  }
+  
+  </style>
+<!-- end of navbar -->
+<div class="showcase {{background}} ">
+  <div class="main-container">
+    <h1 class="showcase-maintext">{{heading}}</h1>
+    <p class="showcase-subtext">{{sub_header}}</p>
+    <a href="subject1.html" class="{{button}} btn-secondary">Practice Now</a>
+  </div>
+</div>
+{% endblock showcase_nav_foot %}
+<!-- new section test -->
+
+{% block sectionA %}
+
+  
+<div class="container-post">
+
+  <div id  ='paginate_dir' class="blog-heading">
+    <!-- <p>Notes</p> -->
+  </div>
+<div>
+  {% include 'slider.html' %}
+
+  
+  <div class="blog-heading">
+    <p  >Articles</p>
+  </div>
+  <div  class="paginate_pages">
+  {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1,right_current=2) %}
+  {% if page_num %}
+  {% if posts.page==page_num %}
+  <a  href="{{ url_for('blogs.blog_page',page=page_num)}}#paginate_dir"  class='current_page'>{{ page_num }}</a>
+  {%else%}
+  <a href="{{ url_for('blogs.blog_page',page=page_num) }}#paginate_dir">{{ page_num }}</a>
+  {% endif %}
+     
+  {% else %}
+    ...
+  {% endif %}
+{% endfor %}
+</div>
+  <div class="post-container">
+    {% for post in posts.items %} {% set img_name = 'profile_pics/' + post.img %} {%
+    set img_name = 'profile_pics/' + post.img %} {% set day =
+    post.date_posted.strftime('%B') %} {% set day_num = post.date_posted.day%}
+    {% set year = post.date_posted.year%}
+    {% set slug_t = post.title.replace(" ","-").lower() %}
+
+
+    {% set info = post.subtitle[:90] + (post.subtitle[90:] and '..') %}
+    <div class="blog-new-card">
+      <div class="blog-card card-b2">
+        <div class="meta">
+          <div class="photo" style="background-image: url()">
+            <img src="{{url_for('static', filename = img_name)}}" alt="error" / width = 240px height = 200px >
+          </div>
+          <ul class="details">
+            <!-- <li class="author"><a href="#">Admin</a></li> -->
+            <!-- <li class="date">{{post.date_posted}}</li> -->
+          </ul>
+        </div>
+
+        <div class="description">
+          <a href="{{url_for('blogs.post',post_id=post.id,slug = slug_t)}}"
+            ><h6 class="title">{{post.title}}</h6></a
+          >
+          <small>{{day_num}} {{day}} {{year}}</small>
+          <!-- <h2>Opening a door to the future</h2> -->
+          <div class="fit-text"><p class>{{info}}</p></div>
+
+          <p class="read-more">
+            <a href="{{url_for('blogs.post',post_id=post.id,slug = slug_t)}}">Read More</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+ <!-- THis is the previous featured section -->
+{% include 'feat-component.html' %}
+</div>
+</div>
+
+<script>
+  var slideIndex = 1;
+  showSlides(slideIndex);
+
+  function plusSlides(n) {
+    showSlides((slideIndex += n));
+  }
+
+  function currentSlide(n) {
+    showSlides((slideIndex = n));
+  }
+
+  function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {
+      slideIndex = 1;
+    }
+    if (n < 1) {
+      slideIndex = slides.length;
+    }
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " active";
+  }
+</script>
+
+{% endblock sectionA %}

@@ -1,0 +1,179 @@
+.featured-grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    max-width: 800px;
+    margin : auto;
+
+  
+}
+
+.featured_card {
+    background: linear-gradient(
+        135deg
+        , #00686d 0%,#0b166f  100%);
+    border-radius: 10px;
+    padding: 5px;
+    color: white;
+    font-size: 19px;
+    display: flex;
+    align-items: center;
+  
+
+}
+
+.featured_card .feat-title{
+    font-size: 19px;
+    margin: 10px;
+    hyphens: auto;
+    text-decoration: none;
+   
+}
+.featured_card .feat-title a{
+    color  : white;
+}
+
+.featured_card p {
+    font-size: 15px;
+    margin: 10px;
+  
+    color: #c9c9c9;
+    hyphens: auto;
+  
+  
+  }
+
+.featured_card img {
+
+    border-radius: 10px;
+    transition: all .5s ease-in-out;
+}
+
+.title-readmore {
+    position: relative;
+    padding-left: 10px;
+  
+
+}
+
+.featured-readmore {
+    color: white;
+    text-decoration: none;
+    margin: 10px 10px 0 0;
+    background: rgb(29, 29, 255);
+    padding: 10px;
+    border-radius: 10px;
+    position:absolute;
+    bottom:10px;
+    display: none
+}
+.featured-readmore:hover{
+    transform: scale(1.05);
+    transition: all .1s ease-in-out; ;
+}
+@media (max-width : 700px) 
+{
+    .featured_card{
+        align-items:unset ;
+    }
+
+    .featured-grid-container{
+        display: flex;
+        flex-direction: column;
+       
+
+    }
+    .featured-readmore{
+        display:block;
+        font-size: 13px;
+        padding : 5px;
+        margin-left: 10px;
+        bottom: 5px;
+    
+    
+    }
+    .featured_card .feat-title {
+        font-size: 20px;
+     
+    }
+
+}
+.line {
+    height: 4px;
+    width: 99%;
+
+    margin-bottom: 1rem;
+    background: #2e00b7;
+  }
+@media (max-width : 600px) {
+  .featured-readmore{
+    font-size: 12px;
+    padding : 3px;
+    border-radius: 5px;
+  }
+}
+@media (max-width : 490px) 
+{
+    
+    .featured-readmore{
+        display:block;
+    
+    
+    }
+    .featured_card .feat-title {
+        font-size: 19px;
+     
+    }
+
+}
+@media (max-width : 447px) 
+{
+    
+    .featured-readmore{
+        display:inline-block;
+        position: static;
+      
+        margin : 0px 0px 10px 10px
+    
+    }
+    .featured_card .feat-title {
+        font-size: 19px;
+     
+    }
+    .featured_card{
+      align-items:center ;
+      flex-direction: column;
+  }
+
+}
+
+@media (max-width : 414px) 
+{
+
+  .featured-readmore{
+    display:inline-block;
+    position: static;
+  
+    margin : 0px 0px 10px 10px
+
+}
+    .featured_card p {
+        font-size: 13px;
+  
+
+    
+    }
+}
+@media (max-width : 365px) 
+{
+
+    .featured-readmore{
+        display:none;
+    }
+    .featured_card{
+        align-items:center ;
+        flex-direction: column;
+    }
+    
+
+}
