@@ -18,7 +18,7 @@ class PostForm(FlaskForm):
     content = TextAreaField('Content', validators=  [DataRequired()])
 
     price = RadioField('Price',choices=[('free','free'),('paid','paid')],validators=[validators.Optional()])
-
+    keywords = StringField('Keywords',validators=[DataRequired()])
     
     subject_title = SelectField('Choose a subject_title',choices=[('mechanics','Mechanics'),('optics','Optics'),('heat','Heat'),('elect_atom','Electrons and Atomic Theory'),('phy_chem','Physical Chemistry'),('valency','Valency'),('oxidation','Oxidation & Reduction'),('periodic_table','Periodic Table'),('mole','Mole Concept'),('n_metals','Non-Metals'),('metals','Metals'),('organic','Organic Chemistry'),('set_function',
     'Sets & Functions'),('algebra','Algebra'),('coord_geometry','Coordinate_Geometry'),('calculus','Calculus'),('vectors','Vectors For Maths'),('','none')])

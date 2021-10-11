@@ -5,7 +5,7 @@
 
 <div class="showcase">
   <div class="main-container">
-    <h1 id="animate" class="showcase-maintext">Not Decided</h1>
+    <h1  class="showcase-maintext">Not Decided</h1>
     <p class="showcase-subtext">Name Not Decided Yet..</p>
     <a href="#s1" class="btn-secondary">Practice Now</a>
 
@@ -16,7 +16,7 @@
 </div>
 {% endblock showcase_nav_foot %} 
 {% block sectionA %}
-<div>
+<div id = 's1'>
   {% for post in posts %} {% set img_name = 'profile_pics/' + post.img %} {% set
   img_name = 'profile_pics/' + post.img %} {% set day =
   post.date_posted.strftime('%B') %} {% set day_num = post.date_posted.day%} {%

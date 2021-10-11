@@ -1,3 +1,8 @@
+{% if feat.title %}
+<title>{{feat.title}} | CollegeChamps</title>
+{% else %}
+<title>Pracite IOE and IOM Entrance | Class 11, 12 Notes| CollegeChamps </title>
+{% endif %}
 {% extends 'render.html' %}
 
 {% block showcase_nav_foot %}
@@ -7,10 +12,10 @@
 <div class="showcase">
   <div class="main-container">
     <h1 class="showcase-maintext">{{feat.title}}</h1>
-    <p class="showcase-subtext">The page where nothing happens..</p>
-    <a href="#" class="btn-secondary"
+    <p class="showcase-subtext">{{feat.subtitle}}</p>
+    <!-- <a href="#" class="btn-secondary"
       >Practice Now <i class="fas fa-chevron-down"></i
-    ></a>
+    ></a> -->
   </div>
 </div>
 {% endblock showcase_nav_foot %}
