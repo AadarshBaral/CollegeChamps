@@ -49,12 +49,12 @@
               <!-- <a href="{{url_for('blogs.post',post_id=post.id,slug = post.title)}}" -->
                 {% set slug_t = post.title.replace(" ","-").lower() %}
                 
-              {% if 'practice-set'  in post.title.lower() %}
+              {% if 'practice-set' or 'mock' in post.title.lower() %}
               <a  href="{{url_for('main.ioe')}}"><h6 class="title">{{post.title}}</h6></a>
               <div class="fit-text"><p class>{{info}}</p></div>
       
               <p class="read-more">
-                <a href= href="{{url_for('main.ioe')}}">Read More</a>
+                <a href="{{url_for('main.ioe')}}">Read More</a>
               </p>
               {%else%}
                <a  href="{{url_for('blogs.post',post_id=post.id,slug = slug_t)}}"><h6 class="title">{{post.title}}</h6></a>

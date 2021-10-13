@@ -26,6 +26,8 @@ creds = env_v()
 
 blogs = Blueprint('blogs', __name__)
 
+
+
 @blogs.route('/blog_page')
 def blog_page():
     side_posts = Post.query.filter_by(others2 = 'sidebar')[0:5]
@@ -87,12 +89,13 @@ def featured_posts():
     return render_template('featured.html', feats=feats,side_posts=side_posts)
 
 
-@blogs.route('/featured/<int:feat_id>')
-def featured_ids(feat_id):
+@blogs.route('/featured/<int:feat_id>/<string:slug>')
+def featured_ids(feat_id,slug):
     feat = Post.query.get_or_404(feat_id)
+    slug =  Post.query.get_or_404(slug)
     feats = Post.query.filter_by(featured='featured')
     side_posts = Post.query.filter_by(others2 = 'sidebar')
-    return render_template('featured.html', feat=feat, feats=feats,side_posts=side_posts)
+    return render_template('featured.html',slug = slug, feat=feat, feats=feats,side_posts=side_posts)
 
 
 

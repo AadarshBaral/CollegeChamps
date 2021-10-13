@@ -26,44 +26,44 @@
 // });
 
 //for all queryselectors.
-const modal = document.querySelector('.modal')
+// const modal = document.querySelector('.modal')
 
-const overlay = document.querySelector('.overlay')
-const btnCloseModal= document.querySelector('.close-modal')
-const btnsOpenModal = document.querySelectorAll('.show-modal')
+// const overlay = document.querySelector('.overlay')
+// const btnCloseModal= document.querySelector('.close-modal')
+// const btnsOpenModal = document.querySelectorAll('.show-modal')
 
 
-// function to remove the modal
-const openModal = function(){
-    modal.classList.remove('off')
-    overlay.classList.remove('off')
+// // function to remove the modal
+// const openModal = function(){
+//     modal.classList.remove('off')
+//     overlay.classList.remove('off')
   
     
-}
-const closeModal = function(){
-  modal.classList.add('off')
-  overlay.classList.add('off')
+// }
+// const closeModal = function(){
+//   modal.classList.add('off')
+//   overlay.classList.add('off')
 
-}
-// for elements having same classes
-//if we had same elements but with different classes or id's we would not have done this. Instead we would have just targeted the single class and add a eventlistener.
-for (let i = 0; i < btnsOpenModal.length; i++){
-  btnsOpenModal[i].addEventListener('click',openModal)
+// }
+// // for elements having same classes
+// //if we had same elements but with different classes or id's we would not have done this. Instead we would have just targeted the single class and add a eventlistener.
+// for (let i = 0; i < btnsOpenModal.length; i++){
+//   btnsOpenModal[i].addEventListener('click',openModal)
 
-}
-btnCloseModal.addEventListener('click', closeModal);
-overlay.addEventListener('click',closeModal)
+// }
+// btnCloseModal.addEventListener('click', closeModal);
+// overlay.addEventListener('click',closeModal)
 
 
-//keypress events
+// //keypress events
 
-document.addEventListener('keydown',function(e){
-    if(e.key === 'Escape' && !modal.classList.contains('hidden')){
+// document.addEventListener('keydown',function(e){
+//     if(e.key === 'Escape' && !modal.classList.contains('hidden')){
     
-        closeModal();
+//         closeModal();
       
-    }
-})
+//     }
+// })
 
 
 
@@ -99,7 +99,7 @@ const toggleButton1 = document.getElementsByClassName("toggle-btn1")[0];
 const navbarLinks = document.getElementsByClassName("nav-links")[0];
 
 toggleButton.addEventListener("click", () => {
-  console.log("click");
+ 
   navbarLinks.classList.toggle("active");
   toggleButton.classList.toggle("hide");
   toggleButton1.classList.toggle("act");

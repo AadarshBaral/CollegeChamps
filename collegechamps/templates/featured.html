@@ -1,12 +1,7 @@
-{% if feat.title %}
-<title>{{feat.title}} | CollegeChamps</title>
-{% else %}
-<title>Pracite IOE and IOM Entrance | Class 11, 12 Notes| CollegeChamps </title>
-{% endif %}
+
 {% extends 'render.html' %}
 
 {% block showcase_nav_foot %}
-
 <link rel="stylesheet" href="{{url_for('static',filename='css/blog_content.css')}}">
 
 <div class="showcase">
@@ -18,6 +13,7 @@
     ></a> -->
   </div>
 </div>
+
 {% endblock showcase_nav_foot %}
 {% block sectionA %}
 <div>

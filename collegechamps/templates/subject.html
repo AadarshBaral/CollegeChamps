@@ -4,14 +4,14 @@
   <div class="main-container">
     <h1 class="showcase-maintext">{{heading}}</h1>
     <p class="showcase-subtext">{{sub_header}}</p>
-    <a href="{{ url_for('blogs.blog_page') }}" class="{{button}} btn-secondary"
+    <a href="#noteS" class="{{button}} btn-secondary"
       >View Notes</a
     >
   </div>
 </div>
 {% endblock showcase_nav_foot %} {% block sectionA %}
 <div>
-  <div class="main-container">
+  <div id = 'noteS' class="main-container">
     <div class="card-grid-container">
       <!-- topic is a list with dictionary key value pairs 
     topic = [{key : value}] -->
@@ -21,7 +21,7 @@
         <h1 class="chapter-name">{{topic_header| capitalize}}</h1>
         <div class="line"></div>
         {% set route = topic[key] %} {%set main_route = "subjects.%s" % route %}
-        <a href="{{ url_for(main_route) }}" class="btn-primary">Start </a>
+        <a href="{{ url_for(main_route) }}" class="btn-primary">View</a>
       </div>
       {% endfor %} {% endfor %}
     </div>
