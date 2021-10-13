@@ -1,6 +1,8 @@
 # main/routes.py
 from flask import render_template, request, Blueprint, redirect
+from flask.helpers import make_response
 from flask_login import login_required
+from werkzeug.wrappers import response
 from collegechamps.models import User,Post
 
 
@@ -18,7 +20,10 @@ def home():
 # @main.route('/sidebar_elem/<int:side_id>')
 # def sidebar_elem(side_id):
 #     side_id = side.
-
+@main.route('/robots.txt',methods=['GET'])
+def robots():
+    response = make_response(open('robots.txt').read())
+    return response
 
 
 

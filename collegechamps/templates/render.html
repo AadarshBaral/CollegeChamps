@@ -2,20 +2,26 @@
 <html lang="en" dir="ltr">
   
   <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    
+    <link rel="preload" href='https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap' as="style">
+    <link rel="stylesheet" href='https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap'>
     <meta charset="UTF-8" />
+    <meta name="description" content="Practice IOE, IOM +2 entrance question all in one place. +2 Science Notes are also available in this website.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#02bcd1" />
+
     {% if title %}
     <title>{{title}} | CollegeChamps</title>
     {% else %}
     <title>Pracite IOE and IOM Entrance | Class 11, 12 Notes| CollegeChamps </title>
     {% endif %}
-    <!-- <title>
-    </title> -->
-    <!-- Boxicons CDN Link -->
+    
     <link
       href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
       rel="stylesheet"
     />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='css/style.css') }}"
@@ -24,12 +30,9 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='css/card.css') }}"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
-      rel="stylesheet"
-    />
+
     
   </head>
   <style>
@@ -415,7 +418,12 @@
             </li>
       
             <li>
-            <a>Notes<i class="bx bxs-chevron-down js-arrow arrow"></i></a>
+            <p style="cursor: pointer;
+            text-decoration: none;
+            white-space: nowrap;
+            color: #333;
+            font-size: 17px;
+            font-weight: 900;"  >Notes<i class="bx bxs-chevron-down js-arrow arrow"></i></p> 
               
               <ul class="js-sub-menu sub-menu">
                 <li class="more">
