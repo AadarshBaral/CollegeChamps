@@ -44,10 +44,17 @@ def search():
     side_posts = Post.query.filter_by(others2 = 'sidebar')[0:5]
     feats = Post.query.filter_by(featured='featured')
     q = request.args.get('q')
-    if q and len(q)>=2:
+    if q and len(q)>2:
         flash('Found Something','info')
         posts = Post.query.filter(Post.title.contains(q) | 
         Post.keywords.contains(q))
+    # if q not in Post.title or q not in Post.keywords:
+    #     flash('Found Nothing...','info')
+    #     return redirect(url_for('blogs.blog_page'))
+    elif q == '' and not q:
+        flash('Found Nothing...','info')
+        return redirect(url_for('blogs.blog_page'))
+
     else:
         flash('Found Nothing...','info')
         return redirect(url_for('blogs.blog_page'))

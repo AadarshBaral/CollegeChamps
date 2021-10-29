@@ -10,7 +10,7 @@
       {% set slug_t = featured.title.replace(" ","-").lower() %}
       <div class="featured_card">
         <div>
-          <img src="{{url_for('static', filename = img_name)}}" alt="" width=160px height=160px>
+          <img src="{{url_for('static', filename = img_name)}}" alt="" width=160px height=150px>
         </div>
         <div class="title-readmore">
           <p class="feat-title"><a href="{{url_for('blogs.featured_ids',feat_id =featured.id,slug=slug_t)}}"
