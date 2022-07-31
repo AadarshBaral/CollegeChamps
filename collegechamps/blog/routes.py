@@ -14,7 +14,7 @@ from flask import (Blueprint, flash, redirect, render_template, request,
 from flask_login import current_user, login_required, login_user, logout_user
 from flask_wtf.recaptcha.widgets import RecaptchaWidget
 from PIL import Image
-from slugify import slugify
+# from slugify import slugify
 from werkzeug.utils import secure_filename, send_from_directory
 
 creds = env_v()
