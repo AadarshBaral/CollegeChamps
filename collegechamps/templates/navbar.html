@@ -3,7 +3,12 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
-    <title> Responsive Drop Down Navigation Menu | CodingLab </title>
+    {% if title %}
+    <title>{{ title }}</title>
+    {% else %}
+    <title>CollegeChamps | Online IOE/+2 preparation</title>
+    {% endif %}
+   
     <link rel="stylesheet" href="style.css">
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -18,7 +23,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+
 }
 body{
   min-height: 100vh;
@@ -47,7 +52,7 @@ nav .navbar{
 .logo {
     font-family: "Arvo", sans-serif;
     font-size: 28px;
-    font-weight: 700;
+    font-weight: bold;
     text-transform: uppercase;
     /* // letter-spacing: 1px; */
   }
@@ -365,7 +370,7 @@ nav .navbar .links li .sub-menu li{
     <div class="navbar">
       <i class="bx bx-menu"></i>
       <div class="logo">
-        <a href="{{url_for('main.home')}}">CollegeChamps</a>
+        <a class="logo1" href="{{url_for('main.home')}}">CollegeChamps</a>
       </div>
       <div class="nav-links">
         <div class="sidebar-logo">

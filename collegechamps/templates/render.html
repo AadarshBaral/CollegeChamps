@@ -383,7 +383,7 @@
       <div class="navbar">
         <i class="bx bx-menu"></i>
         <div class="logo">
-          <a href="{{url_for('main.home')}}">NotDecided</a>
+          <a class="logo1"  href="{{url_for('main.home')}}">CollegeChamps</a>
         </div>
         <div class="nav-links">
           <div class="sidebar-logo">
@@ -460,7 +460,19 @@
                 </li>
               </ul>
             </li> -->
-
+            <li class="more">
+              <span
+                ><a href="{{ url_for('subjects.notes_page_entrance') }}">Notes</a>
+                <i class="bx bxs-chevron-right arrow more-arrow"></i>
+              </span>
+              <ul class="more-sub-menu sub-menu">
+                <li><a href="{{ url_for('subjects.physics') }}">Physics</a></li>
+                <li><a href="{{ url_for('subjects.chemistry') }}">Chemistry</a></li>
+                <li><a href="{{ url_for('subjects.maths') }}">Mathematics</a></li>
+          
+                <!-- <li><a href="#">English</a></li> -->
+              </ul>
+            </li>
             <li><a href="{{ url_for('blogs.blog_page') }}">Blog</a></li>
             {% if current_user.is_authenticated %}
             <li><a href="{{ url_for('users.logout') }}">Logout</a></li>
