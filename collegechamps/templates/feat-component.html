@@ -3,22 +3,29 @@
     <p class="featured_post">Featured</p>
     <div class="line"></div>
     <div class="featured-grid-container">
+
+
+
       {% for featured in feats %}
+
+
+
       {% set img_name = 'profile_pics/' +
       featured.img %} {% set img_name = 'profile_pics/' + featured.img %}
       {% set info = featured.subtitle[:65] + (featured.subtitle[65:] and '..') %}
       {% set slug_t = featured.title.replace(" ","-").lower() %}
       <div class="featured_card">
         <div>
-          <img src="{{url_for('static', filename = img_name)}}" alt="" width=160px height=150px>
+          <img src="{{ url_for('static', filename = img_name) }}" alt="" width=160px height=150px>
         </div>
         <div class="title-readmore">
-          <p class="feat-title"><a href="{{url_for('blogs.featured_ids',feat_id =featured.id,slug=slug_t)}}"
+         <p> </p>
+          <p class="feat-title"><a href="{{ url_for('blogs.featured_ids',feat_id =featured.id,slug=slug_t) }}"
               class="">{{featured.title}}</a></p>
 
 
           <p>{{info}}</p>
-          <a href="{{url_for('blogs.featured_ids',feat_id =featured.id,slug=slug_t)}}" class="featured-readmore">Read More</a>
+          <!-- <a href="{{url_for('blogs.featured_ids',feat_id =featured.id,slug=slug_t)}}" class="featured-readmore">Read More</a> -->
         </div>
 
       </div>

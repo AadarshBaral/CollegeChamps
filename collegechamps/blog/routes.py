@@ -92,14 +92,18 @@ def note_ids(note_id):
 @blogs.route('/featured')
 def featured_posts():
     side_posts = Post.query.filter_by(others2 = 'sidebar')
+    feat = Post.query.filter_by(id = 7)
     feats = Post.query.filter_by(featured='featured')
-    return render_template('featured.html', feats=feats,side_posts=side_posts)
+    return render_template('featured.html', feats=feats,side_posts=side_posts,feat=feat)
 
 
 @blogs.route('/featured/<int:feat_id>/<string:slug>')
 def featured_ids(feat_id,slug):
-    feat = Post.query.get_or_404(feat_id)
-    slug =  Post.query.get_or_404(slug)
+    feat = Post.query.filter_by(id = feat_id).first()
+    # print(type(feat))
+    # print(feat.title)
+    slug =  Post.query.filter_by(slug = slug)
+    
     feats = Post.query.filter_by(featured='featured')
     side_posts = Post.query.filter_by(others2 = 'sidebar')
     return render_template('featured.html',slug = slug, feat=feat, feats=feats,side_posts=side_posts)
