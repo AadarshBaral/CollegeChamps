@@ -7,7 +7,7 @@ from flask_login import LoginManager, UserMixin,login_required
 from flask_mail import Mail
 from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
-from flask_scss import Scss
+# from flask_scss import Scss
 # import flask_whooshalchemy as wa
 from flask_migrate import Migrate
 from werkzeug.utils import redirect
@@ -28,7 +28,7 @@ class env_v:
 
 creds = env_v()
 
-Scss(app)
+# Scss(app)
 app.config.update(
     MAIL_SERVER='smtp.gmail.com',
     MAIL_PORT='465',

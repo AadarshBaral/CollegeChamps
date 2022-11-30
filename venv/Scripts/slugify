@@ -1,4 +1,4 @@
-#!d:\ch_back\venv\scripts\python.exe
+#!D:\CH_BACK\venv\Scripts\python.exe
 # -*- coding: utf-8 -*-
 
 USAGE = """Usage: echo "Héllo Wörld" | slugify # => hello-world"""
