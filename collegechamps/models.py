@@ -2,7 +2,7 @@ from flask_login import UserMixin
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 from collegechamps import db, login_manager, app
 from datetime import datetime,timezone
-from slugify import slugify
+# from slugify import slugify
 
 
 @login_manager.user_loader
