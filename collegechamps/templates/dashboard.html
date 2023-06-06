@@ -273,6 +273,37 @@
                 </td>
               </tr>
               {% endfor %}
+        
+            </table>
+            <h1>All posts</h1>
+            <table class="posts-table" >
+              <tr>
+                <th>Index</th>
+                <th>Posts</th>
+                <th>slug</th>
+                <th>Subject Title</th>
+                <th>Methods</th>
+              </tr>
+              {% for ind_post in allposts %}
+              <tr>
+        
+                <td>{{ ind_post.id }}</td>
+                <td>{{ ind_post.title }}</td>
+                <td>{{ ind_post.slug }}</td>
+                <td>
+                  <a
+                    class="btn-for-dashboard"
+                    href="{{ url_for('blogs.update_post', post_id=ind_post.id) }}"
+                    >Update</a
+                  >
+                  <a
+                    class="btn-for-dashboard"
+                    href="{{ url_for('blogs.delete_post', post_id=ind_post.id) }}"
+                    >Delete</a
+                  >
+                </td>
+              </tr>
+              {% endfor %}
             </table>
           </div>
           <div class="add-content-see">

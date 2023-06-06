@@ -114,6 +114,7 @@ def featured_ids(feat_id,slug):
 @blogs.route("/dashboard", methods=["GET", "POST"])
 def dashboard():
     form = RegistrationForm()
+    allposts = Post.query.all()
     if ('user' in session and session['user'] == creds.db_username):
         posts = Post.query.filter_by(slug='index')
         see_posts = Post.query.filter_by(slug  = 'set_page', subject_title = 'see')
@@ -121,7 +122,7 @@ def dashboard():
         notes = Post.query.filter_by(slug  = 'blog', others1 = 'note')
         class_11_notes = Post.query.filter_by(slug= 'note_topic', grade = '11')
         class_12_notes = Post.query.filter_by(slug= 'note_topic', grade = '12')
-        return render_template('dashboard.html', posts=posts,see_posts = see_posts,articles = articles,notes=notes, class_11_notes = class_11_notes,class_12_notes=class_12_notes)
+        return render_template('dashboard.html', posts=posts,see_posts = see_posts,articles = articles,notes=notes, class_11_notes = class_11_notes,class_12_notes=class_12_notes, allposts = allposts)
 
       
 
@@ -312,7 +313,7 @@ def delete_post(post_id):
 
 
 @blogs.route('/set_page')
-@login_required
+# @login_required   
 def set_page():
     side_posts = Post.query.filter_by(others2 = 'sidebar')
     sets = Post.query.filter_by(slug='set_page',subject_title = 'see')

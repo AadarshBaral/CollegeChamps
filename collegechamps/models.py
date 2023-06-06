@@ -3,11 +3,12 @@ from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 from collegechamps import db, login_manager, app
 from datetime import datetime,timezone
 # from slugify import slugify
-
+login_manager.login_view = 'users.login'
 
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
+
 
 
 class User(db.Model, UserMixin):

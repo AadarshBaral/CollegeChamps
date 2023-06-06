@@ -538,19 +538,19 @@
             Follow us to remain updated about new notes and practice Sets
          
         </p>  
-        <a href="#">Follow</a>
-        <a href="#">About Creator</a>
- 
+        <a target="_blank" href="https://www.facebook.com/adarsh.baral.03">Follow</a>
+        <a target="_blank" href="https://aadarshbaral.github.io/portfolio/">About Creator</a>
         <p id = 'more'>More</p>
     
     
    <div class= 'more-item-container'>
-     <a  class ='more-items' href="#">Lorem ipsum</a>
-     <a class ='more-items'  href="#">Lorem ipsum</a>
-     <a class ='more-items'  href="#">Lorem ipsum</a>
-     <a class ='more-items'  href="#">Lorem ipsum</a>
-     <a class ='more-items'  href="#">Lorem ipsum</a>
-     <a class ='more-items'  href="#">Lorem ipsum</a>
+     <a  class ='more-items' href="{{url_for('subjects.physics')}}">Physics</a>
+     <a class ='more-items'  href="{{url_for('subjects.chemistry')}}">Chemistry</a>
+     <a class ='more-items'  href="{{url_for('subjects.maths')}}">Mathematics</a>
+     <!-- <a class ='more-items'  href="#">English</a> -->
+     <a class ='more-items'  href="{{ url_for('blogs.set_page') }}">+2 Entrance</a>
+     <a class ='more-items'  href="{{ url_for('blogs.blog_page') }}">Blog</a>
+     <a class ='more-items'  href="{{ url_for('main.home') }}">Home</a>
 
    </div>
    <!-- <div class= 'more-item-container'>
