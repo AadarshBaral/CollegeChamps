@@ -451,7 +451,7 @@ def physics_entrance_notes():
     topic_of_note = Post.query.filter_by(slug = 'note_topic',topic  = 'physics_note_topic_entrance')
     side_posts = Post.query.filter_by(others2 = 'sidebar')
     posts_notes = note_slug('physics_note')
-    return render_template('post.html',side_posts = side_posts,sub_title = 'Entrance Notes' ,title = 'Pysics Notes',posts_notes= posts_notes,identifier = 'subject_notes',note_contents = topic_of_note,feats= feats)
+    return render_template('post.html',side_posts = side_posts,sub_title = 'Entrance Notes' ,title = 'Physics Notes',posts_notes= posts_notes,identifier = 'subject_notes',note_contents = topic_of_note,feats= feats)
 
 @subjects.route('/ioe-chemistry-entrance-complete-notes')
 def chemistry_entrance_notes():
